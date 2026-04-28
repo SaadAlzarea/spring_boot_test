@@ -6,13 +6,13 @@ import com.todo_app.todo_backend.enums.UserRole;
 
 import lombok.Data;
 
-@Data
-public class UserRequest {
-	private String email;
-	private String username;
-	private String password;
-	private UserRole role;
-}
+// @Data
+public record UserRequest(
+	String email,
+	String username,
+	String password,
+	UserRole role
+) {}
 
 
 

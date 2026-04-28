@@ -4,8 +4,8 @@ import java.util.UUID;
 
 import lombok.Data;
 
-@Data
-public class GroupRequest {
-    private String group_name;
-    private UUID created_by;
-}
+// @Data
+public record GroupRequest(     
+	String group_name,
+	UUID created_by
+){}

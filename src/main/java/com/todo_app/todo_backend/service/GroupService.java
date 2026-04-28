@@ -32,17 +32,15 @@ public class GroupService {
 		// ADD TRANSACTION TO LET AS ONE FUNCTION
         GroupModel group = new GroupModel();
         group.setGroup_id(UUID.randomUUID());
-        group.setGroup_name(request.getGroup_name());
-        group.setCreated_by(request.getCreated_by());
+        group.setGroup_name(request.group_name());
+        group.setCreated_by(request.created_by());
         group.setCreated_at(LocalDateTime.now());
-		if(!group.length == 0 ){
-			throw new Error("ll");
-		}
+
 		 groupRepository.save(group);
 
         GroupMemberModel groupMember = new GroupMemberModel();
         groupMember.setGroup_member_id(UUID.randomUUID());
-        groupMember.setUser_id(request.getCreated_by());
+        groupMember.setUser_id(request.created_by());
         groupMember.setGroup_id(group.getGroup_id());
         groupMember.setGroup_member_role(GroupMemberRole.admin);
 

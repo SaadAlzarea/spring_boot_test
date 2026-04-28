@@ -17,7 +17,6 @@ import lombok.Setter;
 @Table(name = "groups")
 @Data
 public class GroupModel {
-
     @Id
     @Column(name = "group_id")
     private UUID group_id;

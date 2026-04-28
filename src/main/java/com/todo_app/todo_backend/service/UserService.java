@@ -24,10 +24,10 @@ private final UserRepository userRepository;
 		UserModel userModel = new UserModel();
 
 		userModel.setUserId(UUID.randomUUID());
-		userModel.setUsername(request.getUsername());
-		userModel.setEmail(request.getEmail());
-		userModel.setPassword(request.getPassword());
-		userModel.setRole(request.getRole());
+		userModel.setUsername(request.username());
+		userModel.setEmail(request.email());
+		userModel.setPassword(request.password());
+		userModel.setRole(request.role());
 
 		userModel.setCreated_at(LocalDateTime.now());
 		userModel.setUpdatedAt(LocalDateTime.now()); 
@@ -37,10 +37,10 @@ private final UserRepository userRepository;
 
 	public String login(LoginRequest request){
 		UserModel user = this.userRepository
-		.findByEmail(request.getEmail())
+		.findByEmail(request.email())
 		.orElseThrow(()-> new RuntimeException("Username or Password is not valid"));
 
-		if(!user.getPassword().equals((request.getPassword()))){
+		if(!user.getPassword().equals((request.password()))){
 			throw new RuntimeException("Username or Password is not valid");
 		}
 
